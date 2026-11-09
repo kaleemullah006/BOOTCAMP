@@ -1,0 +1,280 @@
+:root {
+  --purple: #7c3aed;
+  --cyan: #06b6d4;
+  --pink: #ec4899;
+  --text: #e6e9f5;
+  --muted: #8b93b0;
+  --line: rgba(255, 255, 255, 0.07);
+}
+
+.app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 50px 20px 80px;
+}
+
+/* ---------- Header ---------- */
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #a78bfa, #22d3ee, #f472b6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 6px 18px rgba(124, 58, 237, 0.5));
+}
+
+.header p {
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+/* ---------- 3D Card (sab boxes ka base) ---------- */
+.card {
+  background: linear-gradient(145deg, #1b2138, #11162a);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow:
+    0 25px 45px rgba(0, 0, 0, 0.55),
+    0 8px 14px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.09),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.35);
+}
+
+/* ---------- Form ---------- */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 46px;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+  transform: perspective(1200px) rotateX(2deg);
+}
+
+/* dabay hue (inset) input */
+.input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 1rem;
+  color: var(--text);
+  background: #0c1020;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  outline: none;
+  box-shadow:
+    inset 4px 4px 10px rgba(0, 0, 0, 0.6),
+    inset -2px -2px 6px rgba(255, 255, 255, 0.03);
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.input::placeholder {
+  color: #5b6384;
+}
+
+.input:focus {
+  border-color: var(--cyan);
+  box-shadow:
+    inset 4px 4px 10px rgba(0, 0, 0, 0.6),
+    0 0 0 3px rgba(6, 182, 212, 0.25),
+    0 0 22px rgba(6, 182, 212, 0.35);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+/* ---------- 3D Buttons ---------- */
+.btn {
+  border: none;
+  border-radius: 12px;
+  padding: 14px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.12s, box-shadow 0.12s, filter 0.2s;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--purple), var(--cyan));
+  box-shadow:
+    0 6px 0 #4c1d95,
+    0 14px 24px rgba(124, 58, 237, 0.5);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.15);
+}
+
+.btn-primary:active {
+  transform: translateY(5px);
+  box-shadow:
+    0 1px 0 #4c1d95,
+    0 5px 10px rgba(124, 58, 237, 0.4);
+}
+
+.btn-danger {
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  background: linear-gradient(135deg, #f43f5e, #be123c);
+  box-shadow:
+    0 4px 0 #7f1230,
+    0 8px 14px rgba(244, 63, 94, 0.35);
+}
+
+.btn-danger:hover {
+  filter: brightness(1.15);
+}
+
+.btn-danger:active {
+  transform: translateY(3px);
+  box-shadow:
+    0 1px 0 #7f1230,
+    0 3px 6px rgba(244, 63, 94, 0.3);
+}
+
+/* ---------- List header ---------- */
+.list-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.list-header h2 {
+  font-size: 1.4rem;
+}
+
+.badge {
+  background: linear-gradient(135deg, var(--purple), var(--pink));
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 3px 12px;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.45);
+}
+
+/* ---------- Notes grid (3D scene) ---------- */
+.notes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  perspective: 1200px;
+}
+
+.note {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rise 0.5s ease both;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* upar ek rangeen glow line */
+.note::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 18px;
+  right: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--purple), var(--cyan), var(--pink));
+  opacity: 0.8;
+}
+
+.note:hover {
+  transform: translateY(-10px) rotateX(5deg) rotateY(-5deg) scale(1.02);
+  box-shadow:
+    0 40px 60px rgba(0, 0, 0, 0.65),
+    0 0 30px rgba(124, 58, 237, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.note h3 {
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+  word-break: break-word;
+  transform: translateZ(25px);
+}
+
+.note p {
+  color: var(--muted);
+  line-height: 1.6;
+  flex: 1;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.note-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  transform: translateZ(18px);
+}
+
+.date {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* ---------- Empty / loading ---------- */
+.empty {
+  text-align: center;
+  padding: 50px 20px;
+  color: var(--muted);
+}
+
+.empty p {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.message {
+  text-align: center;
+  color: var(--muted);
+}
+
+/* ---------- Animation ---------- */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(30px) rotateX(-12deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 640px) {
+  .notes {
+    grid-template-columns: 1fr;
+  }
+
+  .header h1 {
+    font-size: 2.1rem;
+  }
+
+  .form {
+    transform: none;
+  }
+}
