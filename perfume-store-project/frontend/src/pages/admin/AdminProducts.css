@@ -1,0 +1,121 @@
+.ap-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ap-add-btn {
+  padding: 12px 20px;
+  border-radius: 10px;
+  background: #0f0f0f;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.25s ease;
+}
+.ap-add-btn:hover {
+  background: #c9a24d;
+  color: #0f0f0f;
+}
+
+.ap-error {
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  background: #fdecea;
+  color: #b3261e;
+  font-size: 14px;
+}
+
+.ap-table-wrap {
+  overflow-x: auto;
+  background: #fff;
+  border: 1px solid #e6dfd3;
+  border-radius: 12px;
+}
+
+.ap-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+}
+.ap-table th {
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6f6a62;
+  background: #faf7f2;
+  border-bottom: 1px solid #e6dfd3;
+}
+.ap-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #f0ebe1;
+  vertical-align: middle;
+}
+.ap-table tr:last-child td {
+  border-bottom: none;
+}
+.ap-row-off {
+  opacity: 0.6;
+}
+
+.ap-thumb {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #f0ebe1;
+}
+.ap-thumb-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: #8f887a;
+}
+
+.ap-small { font-size: 12px; color: #8f887a; }
+.ap-old { text-decoration: line-through; }
+.ap-out { color: #b3261e; font-weight: 600; }
+
+.ap-status {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.ap-on { background: #e3f3e9; color: #2e7d4f; }
+.ap-off { background: #eee; color: #6f6a62; }
+.ap-status:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.ap-actions {
+  display: flex;
+  gap: 8px;
+}
+.ap-edit,
+.ap-delete {
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.ap-edit {
+  border: 1px solid #0f0f0f;
+  color: #0f0f0f;
+  background: transparent;
+}
+.ap-edit:hover { background: #0f0f0f; color: #fff; }
+.ap-delete {
+  border: 1px solid #b3261e;
+  color: #b3261e;
+  background: transparent;
+}
+.ap-delete:hover { background: #b3261e; color: #fff; }
+.ap-delete:disabled { opacity: 0.5; cursor: not-allowed; }

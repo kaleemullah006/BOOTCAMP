@@ -1,0 +1,92 @@
+/* ===== Stat cards ===== */
+.db-cards {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 24px;
+}
+@media (min-width: 900px) {
+  .db-cards { grid-template-columns: repeat(4, 1fr); }
+}
+
+.db-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #e6dfd3;
+  border-left: 4px solid #c9a24d;
+  border-radius: 12px;
+  color: inherit;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+.db-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+.db-card-alert { border-left-color: #b3261e; }
+.db-card-label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6f6a62;
+}
+.db-card-value { font-size: 26px; line-height: 1.2; }
+
+/* ===== Panels ===== */
+.db-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 900px) {
+  .db-grid { grid-template-columns: 3fr 2fr; }
+}
+
+.db-panel {
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #e6dfd3;
+  border-radius: 12px;
+}
+.db-panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.db-panel-head h3 { margin: 0; font-size: 20px; }
+.db-panel-head a { font-size: 14px; color: #a8822f; text-decoration: none; }
+.db-panel-head a:hover { text-decoration: underline; }
+
+.db-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0ebe1;
+  color: inherit;
+  text-decoration: none;
+}
+.db-row:last-child { border-bottom: none; }
+.db-row:hover strong:first-child { color: #a8822f; }
+.db-row-end {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.db-stock {
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #fff4d6;
+  color: #9a6b00;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.db-stock-out { background: #fdecea; color: #b3261e; }

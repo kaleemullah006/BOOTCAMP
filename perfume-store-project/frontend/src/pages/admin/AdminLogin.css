@@ -1,0 +1,246 @@
+/* ===== Page ===== */
+.al-page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 0%, #1d1a14 0%, #0a0a0a 70%);
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* Floating glowing orbs */
+.al-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.55;
+  animation: al-float 9s ease-in-out infinite;
+  pointer-events: none;
+}
+.al-orb-1 {
+  width: 320px; height: 320px;
+  top: -80px; left: -80px;
+  background: radial-gradient(circle, #c9a24d, transparent 70%);
+}
+.al-orb-2 {
+  width: 380px; height: 380px;
+  bottom: -120px; right: -100px;
+  background: radial-gradient(circle, #a8822f, transparent 70%);
+  animation-delay: -3s;
+}
+.al-orb-3 {
+  width: 200px; height: 200px;
+  top: 55%; left: 12%;
+  background: radial-gradient(circle, #6b5320, transparent 70%);
+  animation-delay: -6s;
+}
+
+/* Faint perspective grid floor */
+.al-grid {
+  position: absolute;
+  left: -50%;
+  right: -50%;
+  bottom: -10%;
+  height: 55%;
+  background-image:
+    linear-gradient(rgba(201, 162, 77, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 162, 77, 0.12) 1px, transparent 1px);
+  background-size: 48px 48px;
+  transform: perspective(500px) rotateX(62deg);
+  mask-image: linear-gradient(to top, #000 10%, transparent 90%);
+  -webkit-mask-image: linear-gradient(to top, #000 10%, transparent 90%);
+  pointer-events: none;
+}
+
+/* ===== 3D stage and card ===== */
+.al-stage {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 400px;
+  perspective: 1200px;
+}
+
+.al-card {
+  --rx: 0deg;
+  --ry: 0deg;
+  --gx: 50%;
+  --gy: 50%;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 40px 28px 28px;
+  border-radius: 22px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(201, 162, 77, 0.35);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.55),
+    0 0 40px rgba(201, 162, 77, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform 0.15s ease-out;
+  animation: al-rise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* Mouse ke saath chalti glare */
+.al-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  background: radial-gradient(
+    circle at var(--gx) var(--gy),
+    rgba(255, 255, 255, 0.16),
+    transparent 55%
+  );
+  pointer-events: none;
+}
+
+/* Depth layers */
+.al-layer-1 { transform: translateZ(20px); }
+.al-layer-2 { transform: translateZ(40px); }
+.al-layer-3 { transform: translateZ(60px); }
+
+/* ===== Content ===== */
+.al-badge {
+  align-self: center;
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f0f0f;
+  background: linear-gradient(145deg, #e6c36f, #a8822f);
+  box-shadow: 0 10px 25px rgba(201, 162, 77, 0.45), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+.al-title {
+  margin: 4px 0 0;
+  text-align: center;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 34px;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+.al-subtitle {
+  margin: -8px 0 8px;
+  text-align: center;
+  font-size: 14px;
+  color: #b9b2a3;
+}
+
+.al-error {
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(179, 38, 30, 0.18);
+  border: 1px solid rgba(255, 120, 110, 0.4);
+  color: #ffb4ab;
+  font-size: 14px;
+}
+
+.al-field { position: relative; }
+
+.al-input {
+  width: 100%;
+  padding: 14px 64px 14px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  font-size: 15px;
+  font-family: inherit;
+  transition: 0.25s ease;
+}
+.al-input::placeholder { color: #8f887a; }
+.al-input:focus {
+  outline: none;
+  border-color: #c9a24d;
+  box-shadow: 0 0 0 3px rgba(201, 162, 77, 0.25);
+}
+
+.al-toggle {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  padding: 6px 10px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #c9a24d;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.al-toggle:hover { background: rgba(201, 162, 77, 0.15); }
+
+.al-submit {
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #e6c36f, #b8923b);
+  color: #0f0f0f;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: inherit;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: 0 12px 24px rgba(201, 162, 77, 0.35);
+  transition: filter 0.25s ease, box-shadow 0.25s ease;
+}
+.al-submit:hover:not(:disabled) {
+  filter: brightness(1.08);
+  box-shadow: 0 16px 30px rgba(201, 162, 77, 0.5);
+}
+.al-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.al-footer {
+  margin: 4px 0 0;
+  text-align: center;
+  font-size: 12px;
+  color: #7d766a;
+}
+
+/* ===== Animations ===== */
+@keyframes al-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -40px) scale(1.12); }
+}
+
+@keyframes al-rise {
+  from { opacity: 0; transform: translateY(40px) rotateX(18deg); }
+  to { opacity: 1; transform: translateY(0) rotateX(0deg); }
+}
+
+@keyframes al-shake {
+  0%, 100% { translate: 0 0; }
+  20% { translate: -10px 0; }
+  40% { translate: 10px 0; }
+  60% { translate: -6px 0; }
+  80% { translate: 6px 0; }
+}
+.al-shake { animation: al-shake 0.45s ease; }
+
+/* Touch devices par tilt ki zaroorat nahi, depth halki rakho */
+@media (hover: none) {
+  .al-card { transform: none; }
+  .al-layer-1, .al-layer-2, .al-layer-3 { transform: none; }
+}
+
+/* Jin users ko animation pasand nahi */
+@media (prefers-reduced-motion: reduce) {
+  .al-orb, .al-card, .al-shake { animation: none; }
+  .al-card { transition: none; }
+}

@@ -1,0 +1,47 @@
+.admin-login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3);
+  background: var(--color-bg);
+}
+.admin-login-card {
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5) var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+}
+.admin-login-card h1 { margin: 0; text-align: center; }
+.admin-muted { color: var(--color-muted); text-align: center; margin: 0; }
+.admin-error {
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  background: #fdecea;
+  color: var(--color-danger);
+  font-size: 14px;
+}
+.admin-page { max-width: var(--container); margin: 0 auto; padding: var(--space-4) var(--space-3); }
+.admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-4); }
+
+.admin-btn {
+  padding: 10px 20px;
+  border: 1px solid #0f0f0f;
+  border-radius: 10px;
+  background: #0f0f0f;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+.admin-btn:hover {
+  background: #c9a24d;
+  border-color: #c9a24d;
+  color: #0f0f0f;
+}
