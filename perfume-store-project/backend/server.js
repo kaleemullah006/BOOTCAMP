@@ -48,9 +48,7 @@ app.get("/", (req, res) => {
 app.get("/api/health", (req, res) => {
   res.json({ ok: true, message: "AF Perfumes API is running" });
 });
-app.get("/api/cors-check", (req, res) => {
-  res.json({ allowedOrigins, openCors });
-});
+
 
 /* ---------- MongoDB (serverless friendly) ---------- */
 
