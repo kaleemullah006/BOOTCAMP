@@ -1,0 +1,9 @@
+node_modules
+.env
+.env.*
+!.env.example
+dist
+.vercel
+.DS_Store
+test-images
+test-image-upload.js
